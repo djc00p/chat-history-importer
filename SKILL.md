@@ -6,7 +6,7 @@ metadata: {"clawdbot":{"emoji":"📥","requires":{"bins":["python3"]},"env":[],"
 
 # Chat History Importer
 
-Import years of AI conversations into searchable episodic memory. Parse ChatGPT and Claude exports and create dated daily memory files your agent can search and reference.
+Import years of AI conversations into searchable episodic memory. Parse ChatGPT and Claude exports and create dated daily memory files your agent can search and reference. Perfect for onboarding new agents with rich historical context or preserving important conversations for future recall. Pairs well with the [chat-learnings-extractor](https://clawhub.ai/djc00p/chat-learnings-extractor) skill for a complete conversation analysis workflow.
 
 ## Quick Start
 
