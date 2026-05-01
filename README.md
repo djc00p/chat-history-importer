@@ -4,14 +4,14 @@
 
 **Chat History Importer** is a specialized utility designed to bridge the gap between your past AI interactions and your agent's future intelligence. It parses chat export files from **OpenCA (ChatGPT)** and **Anthropic (Claude)** and transforms raw JSON data into structured, searchable **episodic memory** for AI agents.
 
-Instead of dumping raw logs, this tool creates dated, human-readable Markdown summaries (`memory/episodic/YYYY-MM-DD.md`) that allow your agent to "remember" historical context, instructions, and important milestones as if they were recent events.
+Rather than simply dumping raw logs, this tool organizes your information, creating dated, human-readable Markdown summaries (memory/episodic/YYYY-MM-DD.md). This approach enables your agent to "remember" historical context, instructions, and important milestones as if they were recent events. This foundation supports the following key features.
 
 ---
 
 ## ✨ Key Features
 
 * **🧠 Episodic Memory Generation:** Automatically organizes conversations into daily Markdown files, making it easy for agents to browse history chronologically.
-* **🔍 Intelligent Auto-Detection:** No need to specify formats. The importer detects whether your source is OpenAI or Anthropic automatically.
+* **🔍 Intelligent Auto-Detection:** No need to specify formats. The importer automatically detects whether your source is OpenAI or Anthropic.
 * **🆔 Identity Mapping:** Transforms generic `user:` and `assistant:` labels into personalized names (e.g., `Kael:` and `Deonte:`) by reading from your workspace's `IDENTITY.md` or `USER.md`.
 * **🚫 Smart Deduplication:** Uses unique Chat IDs to track imports. You can run the same export multiple times without creating duplicate entries in your memory.
 * **🛠️ Integrated Workflow:** Designed to work seamlessly with the [chat-learnings-extractor](https://clawhub.ai/djc00p/chat-learnings-extractor) to turn imported history into actionable insights.
@@ -63,7 +63,7 @@ python3 scripts/batch.py --dir ~/Downloads/chat_exports
 
 ---
 
-#### Examples
+### Examples
 
 Importing only recent history (since Jan 1st, 2025):
 
@@ -83,7 +83,7 @@ python3 scripts/batch.py --dir ~/Downloads/exports --dry-run --verbose
 
 1. Ingestion: The script scans the target directory for valid JSON exports.
 2. Parsing: It identifies the schema (OpenAI vs. Anthropic) and extracts timestamps, roles, and message content.
-3. Identity Resolution: The script looks for IDENTITY.md and USER.md in your OPENCLAW_WORKSPACE. If found, it replaces user with your name and assistant with the agent's name.
+3. Identity Resolution: The script looks for IDENTITY.md and USER.md in your OPENCLAW_WORKSPACE. If found, it replaces 'user' with your name and 'assistant' with the agent’s name.
 4. Aggregation: Messages are grouped by their original timestamp.
 5. Persistence: Data is written to memory/episodic/Y-MM-DD.md.
 
